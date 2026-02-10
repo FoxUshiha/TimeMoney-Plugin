@@ -1,0 +1,17 @@
+name: TimeMoney
+version: 1.5
+main: com.foxsrv.timemoney.TimeMoney
+api-version: 1.20
+depend: [Vault]
+softdepend: [PlaceholderAPI]
+
+commands:
+  timepay:
+    description: Pagar usando tempo
+  timemoney:
+    description: Ver tempo de um jogador
+
+permissions:
+  time.bypass:
+    description: Imune ao sistema de morte por tempo
+    default: op
