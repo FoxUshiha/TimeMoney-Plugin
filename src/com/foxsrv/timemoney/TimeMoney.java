@@ -19,7 +19,7 @@ public class TimeMoney extends JavaPlugin {
         instance = this;
 
         if (!setupEconomy()) {
-            getLogger().severe("Vault não encontrado!");
+            getLogger().severe("Vault missing!");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -35,7 +35,7 @@ public class TimeMoney extends JavaPlugin {
             new PlaceholderHook().register();
         }
 
-        getLogger().info("TimeMoney iniciado!");
+        getLogger().info("TimeMoney started!");
     }
 
     private boolean setupEconomy() {

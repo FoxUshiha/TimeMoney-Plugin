@@ -19,37 +19,37 @@ public class TimePayCommand implements CommandExecutor {
         if (!(sender instanceof Player p)) return true;
 
         if (args.length < 2) {
-            p.sendMessage("/timepay <nick> <tempo>");
+            p.sendMessage("/timepay <nick> <time>");
             return true;
         }
 
         Player alvo = Bukkit.getPlayer(args[0]);
 
         if (alvo == null) {
-            p.sendMessage("Jogador offline.");
+            p.sendMessage("§eUnknown player.");
             return true;
         }
 
         long segundos = TimeParser.parse(args[1]);
 
         if (segundos <= 0) {
-            p.sendMessage("Tempo inválido.");
+            p.sendMessage("§eInvalid time format.");
             return true;
         }
 
         var eco = TimeMoney.get().getEconomy();
 
         if (eco.getBalance(p) < segundos) {
-            p.sendMessage("Você não tem tempo suficiente.");
+            p.sendMessage("§cNot enough of time.");
             return true;
         }
 
         eco.withdrawPlayer(p, segundos);
         eco.depositPlayer(alvo, segundos);
 
-        p.sendMessage("Você enviou "
+        p.sendMessage("§eYou sent "
                 + TimeFormatter.format(segundos)
-                + " para " + alvo.getName());
+                + " §eto " + alvo.getName());
 
         return true;
     }

@@ -50,6 +50,6 @@ public class PrisonManager {
 
     p.teleport(respawn);
 
-    p.sendMessage("§aVocê recebeu tempo e voltou à vida!");
+    p.sendMessage("§aWelcome Back!");
   }
 }

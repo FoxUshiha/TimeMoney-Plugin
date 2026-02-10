@@ -20,13 +20,13 @@ public class TimeMoneyCommand implements CommandExecutor {
                 (Player) sender;
 
         if (alvo == null) {
-            sender.sendMessage("Jogador offline.");
+            sender.sendMessage("§cUnknown Player.");
             return true;
         }
 
         double saldo = TimeMoney.get().getEconomy().getBalance(alvo);
 
-        sender.sendMessage("Tempo de " + alvo.getName() + ": "
+        sender.sendMessage("§eTime of " + alvo.getName() + ": "
                 + TimeFormatter.format((long) saldo));
 
         return true;
